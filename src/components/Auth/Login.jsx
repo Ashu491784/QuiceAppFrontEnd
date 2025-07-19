@@ -22,35 +22,37 @@ import '../../App.css';
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: "auto", mt: 5 }}>
-      <Typography variant="h4" gutterBottom>
-        Login
-      </Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          label="Email"
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-300 to-purple-600 px-4">
+  <div className="bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-xl p-8 w-full max-w-md">
+    <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
+
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-gray-700 font-medium mb-1">Email</label>
+        <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)} fullWidth margin="normal" required/>
-        <TextField
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-          margin="normal"
+          onChange={(e) => setEmail(e.target.value)}
           required
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
         />
+      </div>
+
+      <div>
+        <label className="block text-gray-700 font-medium mb-1">Password</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
+          required
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-600"
+        />
+      </div>
         {error && (
-          <Typography color="error" variant="body2" sx={{ mt: 1 }}>
-            {error}
-          </Typography>
-        )}
-        <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-          Login
-        </Button>
-      </form>
-    </Box>
+        <p className="text-red-500 text-sm mt-1">{error}</p>)}
+        <button type="submit" className="w-full py-2 px-4 bg-gradient-to-r from-yellow-300 to-green-400 hover:bg-indigo-600 text-white font-semibold 
+         rounded-lg shadow-md transition duration-300">Login</button>
+    </form>
+  </div>
+</div>
+
   );
 };
 

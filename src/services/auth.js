@@ -20,7 +20,7 @@ const login = async (credentials) => {
 
 const getProfile = async () => {
     try {
-        const response = await API.get('user/profile');
+        const response = await API.get('user/Profile');
         return response.data;
     } catch (error) {
         throw error.response.data;
